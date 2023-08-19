@@ -3,8 +3,8 @@
 Template for a CV website, built with Astro and Tailwind CSS. Includes a script
 to generate a PDF.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/dstotijn/astro-cv/tree/latest)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/dstotijn/astro-cv/tree/latest)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/dstotijn/astro-cv/tree/main)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/dstotijn/astro-cv/tree/main)
 
 ## Installation
 
