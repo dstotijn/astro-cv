@@ -1,0 +1,12 @@
+---
+export interface Props {
+  repo: string;
+}
+
+const { repo } = Astro.props;
+const stargazersCount = await fetch(`https://api.github.com/repos/${repo}`)
+  .then((res) => res.json())
+  .then((body) => body.stargazers_count as number | undefined);
+---
+
+{new Intl.NumberFormat().format(stargazersCount || 0)}

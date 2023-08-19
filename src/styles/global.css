@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-500;
+  }
+  h2 {
+    @apply text-black !mb-4 !text-2xl !font-semibold;
+  }
+  h3 {
+    @apply text-black !font-semibold !mb-2;
+  }
+  a {
+    @apply !underline underline-offset-4;
+  }
+}
+
+@layer components {
+  .prose-custom {
+    @apply prose
+    prose-a:text-indigo-500
+    prose-a:underline-offset-2
+    prose-p:mt-0
+    prose-p:mb-2
+    prose-ul:list-outside
+    prose-ul:pl-0
+    prose-ul:mt-0
+    prose-ul:ml-0
+    prose-li:mt-0
+    prose-li:-ml-1.5;
+  }
+}
+
+@font-face {
+  font-family: "Editorial New";
+  src:
+    url("/fonts/PPEditorialNew-Regular.woff2") format("woff2"),
+    url("/fonts/PPEditorialNew-Regular.woff") format("woff");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}

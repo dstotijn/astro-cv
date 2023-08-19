@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import JobPosition from "./JobPosition.astro";
+
+const jobPositions = (await getCollection("job-positions")).sort(
+  (a, b) => b.data.from.getTime() - a.data.from.getTime(),
+);
+---
+
+<ul class="list-none pl-0 mb-0">
+  {
+    jobPositions.map(async (jobPosition) => {
+      const { Content } = await jobPosition.render();
+      return (
+        <li class="pl-0 mb-6 last:mb-0">
+          <JobPosition {...jobPosition.data}>
+            <Content />
+          </JobPosition>
+        </li>
+      );
+    })
+  }
+</ul>

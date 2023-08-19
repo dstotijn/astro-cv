@@ -1,0 +1,57 @@
+---
+import Icon from "astro-icon";
+import StargazersCount from "./StargazersCount.astro";
+
+export interface Props {
+  title: string;
+  githubRepo?: string | undefined;
+  from: Date;
+  to?: Date | undefined;
+}
+
+const { title, githubRepo, from, to } = Astro.props;
+---
+
+<div class="flex gap-2">
+  <h3>
+    {
+      githubRepo ? (
+        <a href={`https://github.com/${githubRepo}`} target="_blank">
+          {title}
+        </a>
+      ) : (
+        title
+      )
+    }
+  </h3>
+  <div class="text-gray-400">
+    <time datetime={from.toISOString()}>{from.getFullYear()}</time>
+    {
+      to ? (
+        <>
+          <span>—</span>
+          <time datetime={to.toISOString()}>{to.getFullYear()}</time>
+        </>
+      ) : null
+    }
+  </div>
+</div>
+
+<div class="prose-custom">
+  <slot />
+</div>
+
+{
+  githubRepo && (
+    <div class="flex items-center gap-2 font-medium text-gray-600">
+      <Icon name="mdi:github" class="h-5 w-5" />
+      <a href={`https://github.com/${githubRepo}`} class="!no-underline">
+        {githubRepo}
+      </a>
+      <Icon name="mdi:star" class="h-5 w-5 text-yellow-400" />
+      <a href={`https://github.com/${githubRepo}/stargazers`} class="!no-underline">
+        <StargazersCount repo={githubRepo} /> stars
+      </a>
+    </div>
+  )
+}

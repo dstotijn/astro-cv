@@ -1,0 +1,41 @@
+{
+  "name": "@dstotijn/astro-cv",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">= 18.7.1"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "start": "astro build && astro preview",
+    "generate:pdf": "start-server-and-test start http://localhost:3000 generate-pdf-script",
+    "generate-pdf-script": "NODE_OPTIONS='--loader=ts-node/esm --trace-deprecation --abort-on-uncaught-exception' ts-node --project tsconfig.ts-node.json ./scripts/generate-pdf.ts",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write **/*.astro .",
+    "lint": "eslint --ext .js,.astro src"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^0.19.7",
+    "@astrojs/tailwind": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.9",
+    "@tsconfig/node18": "^18.2.0",
+    "astro": "^2.9.6",
+    "astro-icon": "^0.8.1",
+    "playwright": "^1.37.1",
+    "start-server-and-test": "^2.0.0",
+    "tailwindcss": "^3.0.24",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^6.2.0",
+    "eslint": "^8.46.0",
+    "eslint-plugin-astro": "^0.28.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.11.0",
+    "prettier-plugin-tailwindcss": "^0.4.1"
+  }
+}
